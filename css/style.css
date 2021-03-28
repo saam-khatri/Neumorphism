@@ -1,0 +1,367 @@
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+:root{
+	--n_box: 2px 2px 2px #00000040, -2px -2px 2px #fff;
+	--i_box: inset 2px 2px 2px #00000040, inset -2px -2px 0px #fff;
+	--text_sha: 1px 1px 1px #000, -1px -1px 1px #fff;
+  	--value: 50%; /*put js value here*/
+}
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+main{
+	width: 90%;
+	height: 750px;
+	margin: 50px auto;
+	padding: 50px;
+	background: whitesmoke;
+}
+header{
+	width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.logo{
+	float: left;
+	background: inherit;
+	width: 200px;
+	height: 200px;
+	color: white;
+   	box-shadow: var(--n_box);
+}
+.logo span{
+	width: 150px;
+	height: 150px;
+	margin: 25px;
+	background: linear-gradient(#fff, #ddd);
+	box-shadow: 0 2px 5px #00000060, inset 0 1px 2px white, 0 -1px 2px #ddd;
+	display: inherit;
+    text-align: center;
+    font-size: 50px;
+    line-height: 150px;
+    border-radius: 50%;
+}
+.logo span:hover{
+	box-shadow: 0 1px 2px #00000060, inset 0 1px 2px white, 0 -1px 2px #ddd;
+	cursor: pointer;
+}
+.logo span i{
+	width: 80%;
+    height: 80%;
+    border-radius: inherit;
+    background: linear-gradient(#ddd, #fff);
+    padding: 35px;
+}
+.plate{
+	width: 500px;
+	height: 100%;
+	padding: 2px 20px;
+	text-align: center;
+	display: flex;
+	align-items: center
+}
+.plate-one,
+.plate-two{
+   	width: 150px;
+    height: 150px;
+    float: left;
+    background: whitesmoke;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto 20px auto;
+    box-shadow: inset 8px 8px 10px #00000040, inset -8px -8px 10px white; 
+}
+.plate span{
+	position: absolute;
+    width: 100px;
+    height: 100px;
+    background: inherit;
+    left: 25px;
+    top: 25px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 6px #00000040, -2px -2px 6px white;
+}
+.plate .plate-two span{
+	background: linear-gradient(#fff, #ccc);
+    box-shadow: 5px 5px 10px #00000040, -5px -5px 10px #fff;
+}
+form{
+	width: calc(100% - 700px);
+	display: flex;
+}
+input[type="checkbox"]{
+	-webkit-appearance: none;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+input[type="checkbox"]:before,
+input[type="checkbox"]:after{
+    position: absolute;
+    content: '';
+    width: 70px;
+    height: 70px;
+    top: -40px;
+	left: -35px;
+    border-radius: 50%;
+    box-shadow: var(--n_box);
+    transition: 0.5s;
+}
+input[type="checkbox"]:after{
+	width: 40px;
+	height: 40px;
+	top: -26px;
+	left: -20px;
+}
+input:checked[type="checkbox"]:before,
+input:checked[type="checkbox"]:after{
+	box-shadow: var(--i_box);
+}
+input:checked[type="checkbox"]:after{
+	background: #99ffff;
+}
+form input#toggle{
+	width: 200px;
+    height: 80px;
+    border-radius: 50px;
+    background: #eee;
+    box-shadow: 2px 2px 10px #00000040, -2px -2px 10px white;
+}
+form input#toggle:before{
+	width: 196px;
+    height: 76px;
+    border-radius: inherit;
+    top: 2px;
+    left: 2px;
+    box-shadow: inset 4px 4px 10px #999, inset -4px -4px 10px #fff;
+}
+form input#toggle:after{
+	top: 7px;
+    left: 7px;
+    width: 66px;
+    height: 66px;
+    background: linear-gradient(#fff, #bbb);
+    box-shadow: 2px 2px 6px #666, -2px -2px 6px #fff;
+}
+form input:checked#toggle:before{
+	background: linear-gradient(160deg, #10aeff, #00feff);
+    box-shadow: inset 4px 4px 10px #0069ba, inset -4px -4px 10px cyan;
+}
+form input:checked#toggle:after{
+	left: 130px;
+}
+form .input{
+	width: 60%;
+	height: 150px;
+	position: relative;
+	left: 30px;
+}
+input[type="range"]{
+	-webkit-appearance: none;
+	width: 100%;
+	height: 20px;
+	margin: 80px auto auto auto;
+	outline: none;
+	border-radius: 10px;
+}
+input[type="range"]::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	background: whitesmoke;
+	cursor: pointer;
+	z-index: 2;
+	box-shadow: var(--n_box);
+}
+.input span:first-child{
+	position: absolute;
+	left: calc(50% - 25px);
+	width: 50px;
+	   height: 50px;
+	filter: drop-shadow(0 2px 2px gray);
+}
+.input span:first-child:before{
+	content: attr(data-percent);
+	position: inherit;
+	width: inherit;
+	height: inherit;
+	background: whitesmoke;
+	clip-path: polygon(0 0, 100% 0, 100% 65%, 50% 100%, 0 65%);
+	border-radius: 25px;
+	text-align: center;
+	line-height: 45px;
+}
+.input span:last-child{
+	position: absolute;
+    left: 0;
+    top: 80px;
+    width: calc(50% - 23px);
+    height: 20px;
+   	background: #00fff3;
+    display: inherit;
+    box-shadow: var(--i_box);
+    border-radius: 20px 0 0 20px;
+}
+.ui-element{
+	width: 100%;
+	padding: 30px 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.ui-element :is(.button, .toggle, .progress){
+	width: 25%;
+	padding: 10px;
+}
+.progress{
+	width: 45% !important;
+}
+
+button{
+	border: none;
+    outline: none;
+    width: 160px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: var(--n_box);
+    font-size: 20px;
+    margin: 15px auto;
+    color: #444;
+}
+button:focus{
+	box-shadow: var(--i_box);
+	color: royalblue;
+}
+label{
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	border-radius: 50%;
+	box-shadow: var(--n_box);
+	text-align: center;
+	margin: 2px 20px;
+}
+label[for="toggle"]{
+	width: 200px;
+    border-radius: 50px;
+    box-shadow: none;
+    margin: 50px auto auto 50px;
+}
+label[for="toggle"] input[type="checkbox"]{
+	width: 90%;
+	height: 90%;
+	position: relative;
+	cursor: pointer;
+	-webkit-appearance: none;
+	background: linear-gradient(#00000040, #fff);
+	border-radius: 50px;
+	box-shadow: 0 0 0 10px #ddd, 0 2px 2px 10px #00000040, 0 -2px 0 10px #fff, inset 0 0 10px #00000020, 0 5px 20px #00000040, inset 0 0 15px #00000040;
+}
+label[for="toggle"] input[type="checkbox"]:before{
+	background: linear-gradient(#fff, #00000040);
+	border-radius: 45px;
+	transform: scale(0.94, 0.92);
+	height: 92px;
+	width: 100px;
+	top: 0;
+	left: 0;
+	box-shadow: 0 0 0 2px #ccc;
+}
+label[for="toggle"] input[type="checkbox"]:after{
+	top: 35px;
+    left: 70px;
+    width: 15px;
+    height: 15px;
+    box-shadow: none;
+    background: linear-gradient(#00000040, #fff);
+}
+label[for="toggle"] input:checked[type="checkbox"]:before{
+	left: 80px;
+}
+label[for="toggle"] input:checked[type="checkbox"]:after{
+	left: 155px;
+	background: cyan;
+	box-shadow: 0px 0px 4px 5px #bfffff;
+   	transform: scale(0.8);
+}
+.progress p{
+	width: 40px;
+	height: 250px;
+	margin: 2px 25px;
+	border-radius: 20px;
+	float: left;
+	box-shadow: var(--i_box);
+	position: relative;
+}
+.progress p:before{
+	position: absolute;
+    content: '';
+    left: 5px;
+    top: 5px;
+    width: 29px;
+    border-radius: 20px 20px 0 0;
+    height: 150px;
+    background: #f6c6ff;
+   	box-shadow: var(--n_box);
+}
+.progress p:nth-child(even):before{
+	height: 180px;
+	top: 65px;
+	border-radius: 0 0 20px 20px;
+}
+.custon-slider{
+	width: 96%;
+	position: relative;
+}
+.field{
+	box-shadow: -4px -4px 6px #fff, 4px 4px 12px #a5a5a5bf;
+	border-radius: 10px;
+	width: 104%;
+	height: 50px;
+	position: absolute;
+	top: 51px;
+}
+.line{
+	height: 30px;
+    background: linear-gradient(to right, #185ef0, #30CFD0);
+    position: absolute;
+    top: 60px;
+    border-radius: 15px;
+    width: calc(var(--value) + 4px); /*js+ css value*/
+}
+.thumb{
+	width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50px;
+    left: var(--value); /*js+ css value*/
+    background: whitesmoke;
+    border-radius: 50%;
+    box-shadow: var(--n_box);
+    cursor: pointer;
+}
+.percent{
+	position: absolute;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+    top: 10px;
+    left: var(--value); /*js+ css value*/
+    filter: drop-shadow(0 2px 2px black);
+}
+.percent strong{
+	display: block;
+	width: inherit;
+	height: inherit;
+	background: whitesmoke;
+	clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 50% 100%, 25% 75%, 0% 75%);
+}
